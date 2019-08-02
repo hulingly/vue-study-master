@@ -1,0 +1,4 @@
+父子组件通信
+1.parent通过props向child传值
+2.child通过$emit派发事件, child接收事件, 并将事件的参数传入parent
+3.child通过$refs获取本身的数据,并传给parent, parent中可以修改这个数据, 但不可以修改child的props中的数据
