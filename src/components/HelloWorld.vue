@@ -4,7 +4,6 @@
     <p>aa的值: {{aa}}</p>
     <p>bb的值: {{bb}}</p>
     <p>cc.d的值: {{cc.d}}</p>
-    slot
     <br>
     <slot></slot>
     <br>
@@ -16,7 +15,7 @@
 <script>
 export default {
   name: 'HelloWorld',
-  inject:['aa', 'bb', 'cc', 'setaa', 'setbb', 'setcc', 'setaa1', 'setbb1', 'setcc1'],
+  inject:['aa', 'bb', 'cc', 'setcc1'],
   props: {
     msg: String
   },
@@ -26,11 +25,6 @@ export default {
     }
   },
   mounted() {
-    // this.setaa('aa');
-    // this.setaa1('aa1');
-    // this.setbb('bb');
-    // this.setbb1('bb1');
-    // this.setcc('dd');
     this.setcc1('dd1');
   }
 }
