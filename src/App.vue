@@ -8,6 +8,7 @@
         <template v-slot:content="{bla}">{{bla}}</template> -->
       </HelloWorld>
       <Form-Test></Form-Test>
+      <Tree-Test></Tree-Test>
 
   </div>
 </template>
@@ -15,7 +16,7 @@
 <script>
 import HelloWorld from './components/HelloWorld.vue'
 import FormTest from './components/form/index.vue'
-
+import TreeTest from './components/tree/index.vue'
 export default {
   name: 'app',
   provide() {
@@ -37,7 +38,8 @@ export default {
   },
   components: {
     HelloWorld,
-    FormTest
+    FormTest,
+    TreeTest
   },
   mounted() {
     this.$children[0].foo = 'dong'
@@ -49,7 +51,6 @@ export default {
     setcc(value) {
       this.c.d = value
     }
-
   }
 }
 </script>

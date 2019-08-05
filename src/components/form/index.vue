@@ -26,6 +26,8 @@ import KFormItem from './KFormItem.vue';
 import KForm from './KForm.vue';
 import KCheckbox from './KCheckbox.vue';
 import Test from './test.vue';
+import Create from "@/utils/create.js";
+import Notice from '../Notice/index.vue'
     export default {
         components: {
             KInput,
@@ -49,10 +51,20 @@ import Test from './test.vue';
         },
         methods: {
             onLogin() {
+                let notice;
                 this.$refs.loginForm.validate((isValid) => {
-                    if (!isValid) {
-                        alert("错误!")
+                    let message = '';
+                    if (isValid) {
+                        message = "登录"
+                    } else {
+                        message = "错误"
                     }
+                    notice = Create(Notice, {
+                        title: "温馨提示",
+                        message: message,
+                        duration: 2000
+                    })
+                    notice.show()
                 })
             }
         },
