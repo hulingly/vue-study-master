@@ -21,56 +21,55 @@
 </template>
 
 <script>
-import KInput from './KInput.vue';
-import KFormItem from './KFormItem.vue';
-import KForm from './KForm.vue';
-import KCheckbox from './KCheckbox.vue';
-import Test from './test.vue';
+import KInput from "./KInput.vue";
+import KFormItem from "./KFormItem.vue";
+import KForm from "./KForm.vue";
+import KCheckbox from "./KCheckbox.vue";
+import Test from "./test.vue";
 import Create from "@/utils/create.js";
-import Notice from '../Notice/index.vue'
-    export default {
-        components: {
-            KInput,
-            KFormItem,
-            KForm,
-            KCheckbox,
-            Test
-        },
-        data() {
-            return {
-                model: {
-                    username: 'tom',
-                    password: '',
-                    remmember: false
-                },
-                rules: {
-                    username: [{required: true, message: "用户名不能为空!"}],
-                    password: [{required: true, message: "密码不能为空!"}]
+import Notice from "../Notice/index.vue";
+export default {
+    components: {
+        KInput,
+        KFormItem,
+        KForm,
+        KCheckbox,
+        Test
+    },
+    data() {
+        return {
+            model: {
+                username: "tom",
+                password: "",
+                remmember: false
+            },
+            rules: {
+                username: [{ required: true, message: "用户名不能为空!" }],
+                password: [{ required: true, message: "密码不能为空!" }]
+            }
+        };
+    },
+    methods: {
+        onLogin() {
+            let notice;
+            this.$refs.loginForm.validate(isValid => {
+                let message = "";
+                if (isValid) {
+                    message = "登录";
+                } else {
+                    message = "错误";
                 }
-            }
-        },
-        methods: {
-            onLogin() {
-                let notice;
-                this.$refs.loginForm.validate((isValid) => {
-                    let message = '';
-                    if (isValid) {
-                        message = "登录"
-                    } else {
-                        message = "错误"
-                    }
-                    notice = Create(Notice, {
-                        title: "温馨提示",
-                        message: message,
-                        duration: 2000
-                    })
-                    notice.show()
-                })
-            }
-        },
+                notice = Create(Notice, {
+                    title: "温馨提示",
+                    message: message,
+                    duration: 2000
+                });
+                notice.show();
+            });
+        }
     }
+};
 </script>
 
 <style lang="scss" scoped>
-
 </style>
