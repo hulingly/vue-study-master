@@ -1,7 +1,7 @@
 <template>
     <div>
         list
-        <router-link to="/detail/1">detail</router-link>
+        <!-- <router-link to="/detail/1">detail</router-link> -->
     </div>
 </template>
 

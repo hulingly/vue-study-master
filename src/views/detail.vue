@@ -3,6 +3,7 @@
         details
         <p>id: {{$route.params.id}}</p>
         <p>id: {{id}}</p>
+        <!-- <p>matched:{{$route.matched}}</p> -->
     </div>
 </template>
 
@@ -13,7 +14,15 @@ export default {
             type: String,
             default: ""
         }
-    }
+    },
+    watch: {
+        $route() {
+            console.log(this.$route);
+        }
+    },
+    mounted () {
+        // console.log($route.matched);
+    },
 };
 </script>
 

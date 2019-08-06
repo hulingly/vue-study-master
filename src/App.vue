@@ -1,7 +1,7 @@
 <template>
     <div id="app">
         <router-link to="/">Home</router-link>
-        <router-link to="/About">About</router-link>
+        <router-link to="/about">About</router-link>
         <router-view></router-view>
         <HelloWorld msg="Welcome to Your Vue.js App" ref="hw" @foo="onFoo">
             <template v-slot:default>默认插槽</template>
@@ -16,10 +16,8 @@
 import HelloWorld from "./components/HelloWorld.vue";
 import FormTest from "./components/form/index.vue";
 import TreeTest from "./components/tree/index.vue";
-import router from "./router";
 export default {
     name: "app",
-    router,
     provide() {
         return {
             aa: "a", //传递静态值
